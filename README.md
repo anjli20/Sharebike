@@ -108,78 +108,24 @@ View History - Click History to see all your past trips, including start/end sta
 
 ### Operator Features
 
-#### Track
-Click Track to view the current location and status of all vehicles.
+Track - Click Track to view the current location and status of all vehicles.
 
-#### Charge
-Select a low-power vehicle and click Charge.
+Charge - Select a low-power vehicle and click Charge.
 
-#### Repair
-Select a broken vehicle and click Repair.
+Repair - Select a broken vehicle and click Repair.
 
-#### Move
-Select a vehicle and a target location, then click Move.
+Move - Select a vehicle and a target location, then click Move.
 
 ### Manager Features
 
-#### Period Report
-Enter a start and end time in the format %Y-%m-%d %H:%M and click Generate Report.
+Period Report - Enter a start and end time in the format %Y-%m-%d %H:%M and click Generate Report.
 Vehicle activity during that period is displayed in the console.
 
-#### Full Report
-Click Generate Full Report to view all vehicle activity across all time.
+Full Report - Click Generate Full Report to view all vehicle activity across all time.
 
-#### Vehicle Status Graph
-Click Generate Vehicle Graph to see a breakdown of vehicles by status.
+Vehicle Status Graph - Click Generate Vehicle Graph to see a breakdown of vehicles by status.
 
-#### Stations and Vehicles Graph
-Click Generate Graph Stations & Vehicles to see how many vehicles are at each station.
-
-
-## File Structure
-
-```
-Sharebike/
-|
-|-- Initialize.py                      # Database setup and test data generation
-|-- sharebike-app-entrypoint.py        # Main GUI entry point
-|-- general.py                         # Register and login logic for all user types
-|-- customer.py                        # Customer-facing operations
-|-- employee.py                        # Operator-facing operations
-|-- manager.py                         # Manager-facing reporting operations
-|-- enum_values.py                     # Enum definitions for vehicle status and user type
-|-- dbFun.py                           # Core database functions
-|-- sharebike_customer.py              # Customer dashboard UI
-|-- sharebike_customer_rent.py         # Rent UI
-|-- sharebike_customer_return.py       # Return UI
-|-- sharebike_customer_report.py       # Report UI
-|-- sharebike_customer_pay.py          # Payment UI
-|-- sharebike_customer_history.py      # History UI
-|-- sharebike_customer_profile.py      # Profile UI
-|-- sharebike_customer_login.py        # Customer login UI
-|-- sharebike_operator.py              # Operator dashboard UI
-|-- sharebike_operator_track.py        # Track UI
-|-- sharebike_operator_charge.py       # Charge UI
-|-- sharebike_operator_repair.py       # Repair UI
-|-- sharebike_operator_move.py         # Move UI
-|-- sharebike_operator_login.py        # Operator login UI
-|-- sharebike_manager_login.py         # Manager login UI
-|-- sharebike_manager_generatereport.py # Report generation UI
-|-- sharebike_register.py              # Registration UI
-|-- README.md
-```
-
-## Developer Notes
-
-When registering or signing in, use:
-```python
-enum_values.UserType.USERTYPE.value
-```
-
-When changing vehicle status, use:
-```python
-enum_values.Status.STATUS.value
-```
+Stations and Vehicles Graph - Click Generate Graph Stations & Vehicles to see how many vehicles are at each station.
 
 Key API functions:
 
