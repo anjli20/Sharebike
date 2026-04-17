@@ -95,10 +95,15 @@ python sharebike-app-entrypoint.py
 ### Customer Features
 
 Rent - Select a location and vehicle, then click Rent.
+
 Return - Select a return location and click Return.
+
 Report - Select a location, vehicle, and fault status, then click Report.
+
 Pay - Enter the amount and click Pay.
+
 View Profile - Click View Profile to see your account details.
+
 View History - Click History to see all your past trips, including start/end stations, time, and charge.
 
 ### Operator Features
