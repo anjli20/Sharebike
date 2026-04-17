@@ -1,135 +1,206 @@
-# Project Name
-The project name is **Share Bike**, it aims for providing a software system to support an electric vehicles sharing programme.
+# ShareBike — Electric Vehicle Sharing System
 
----
+A Python-based software system to support a docked electric vehicle sharing programme.
+The system provides a full GUI with three distinct user roles: Customer, Operator, and Manager,
+each with their own set of features for managing and interacting with the shared vehicle fleet.
 
-# Project Overview
-## Vehicles
-There are two types of vehicles in the system, which is **E-Bike** and **Bike**. The charging policy is a bit different for these two types.
+## Project Overview
+
+### Vehicles
+
+Two types of vehicles are supported, each with a different charging policy:
+
+- Bike
+- E-Bike
+
+### Vehicle Status
+
+Each vehicle is tracked under one of four statuses at all times:
+
+- VACANT — available for rent
+- RENTED — currently in use
+- LOWPOWER — battery needs charging
+- BROKEN — requires repair
+
+### Location
+
+The system supports a docked bike sharing model. Each docking station is identified by:
+
+- Station Name
+- Postcode
+
+## User Roles
+
+### Customer
+
+- Rent a vehicle from a docking station
+- Return a vehicle to a docking station
+- Report a vehicle as broken or low power
+- Pay outstanding charges
+- View profile
+- View travel history
+
+### Operator
+
+- Track all vehicles — current location and status
+- Charge low-power vehicles
+- Repair broken vehicles
+- Move vehicles between stations
+
+### Manager
+
+- Generate a report for a specific time period
+- Generate a full report of all vehicle activity
+- View a graph of vehicles by status
+- View a graph of vehicles by station
 
 
-## Status
-Four statuses are provided to describe the condition of a vehicle, including **VACANT**, **RENTED**, **LOWPOWER** and **BROKEN**.
+## Installation
 
-## Location
-The software only supports docked bike sharing programme. An available docking position is described by two fields, which is **station name** and **postcode**.
+1. Clone or download the repository:
 
-## Customer
-Customers are able to **rent** and **return** vehicles through the interface provided by the software, the system will automatically calculate the charge according to the time period of their riding, so that they can **pay** their bills later. A customer can also **report** the malfunction of vehicles, including broken parts or ran out of power. Another two features are that they have the access to the database to check their **profile** and their **travel history**.
+```bash
+git clone https://github.com/anjli20/Sharebike.git
+cd Sharebike
+```
 
-## Operator
-Operators are able to **track** all the current vehicles' location and status. They can also make changes like **charging** the battery or **repairing** bike faults. **Moving** vehicles from one place to another is also available.
+2. Open the folder in Spyder (or any Python IDE).
 
-## Manager
-A manager has the access to the whole database and the system is able to **generate various forms of reports** to reflect the usage condition.
+3. Run Initialize.py once to set up the local database and insert simulated test data:
 
----
+```bash
+python Initialize.py
+```
 
-# Installation Instruction
-1. Download the code, open the folder with spyder
-2. Run the Initialize.py once to initialize the database and generate simulated data.
-3. Run the sharebike-app-entrypoint.py to activate the user interface
+4. Run the entry point to launch the GUI:
 
-![Entry](images/entry.png)
+```bash
+python sharebike-app-entrypoint.py
+```
 
----
+## Usage Guide
 
-# Usage Guidelines
-## Register
-1. Click **sign up**
-2. Choose register as **customer** or **operator** or **manager**
-3. Enter the information and Click **sign up**
-  
-![Register](images/register.png)
+### Register
 
-## Login
-1. Choose login as **customer** or **operator** or **manager**
-2. Enter the **email** and **password** anc click **log in**
+1. Click Sign Up on the entry screen
+2. Choose your role: Customer, Operator, or Manager
+3. Fill in your details and click Sign Up
 
-![Login](images/login.png)
+### Login
 
-## Customer
-![Customer](images/customer.png)
+1. Choose your role: Customer, Operator, or Manager
+2. Enter your email and password
+3. Click Log In
 
-### View Profile
-Click **view profile**
+### Customer Features
 
-![Profile](images/profile.png)
+#### Rent
+Select a location and vehicle, then click Rent.
 
-### Rent
-Select **location** and **vehicle**, click **rent**
+#### Return
+Select a return location and click Return.
 
-![Rent](images/rent.png)
+#### Report
+Select a location, vehicle, and fault status, then click Report.
 
-### Return
-Select **location**, click **return**
+#### Pay
+Enter the amount and click Pay.
 
-![Return](images/return.png)
+#### View Profile
+Click View Profile to see your account details.
 
-### Report
-Select **location**, **vehicle** and **status**, click **report**
+#### View History
+Click History to see all your past trips, including start/end stations, time, and charge.
 
-![Report](images/report.png)
+### Operator Features
 
-### Pay
-Enter **amount**, click **pay**
+#### Track
+Click Track to view the current location and status of all vehicles.
 
-![Pay](images/pay.png)
+#### Charge
+Select a low-power vehicle and click Charge.
 
-### View History
-Click **history**
+#### Repair
+Select a broken vehicle and click Repair.
 
-![History](images/history.png)
+#### Move
+Select a vehicle and a target location, then click Move.
 
-## Operator
-![Operator](images/operator.png)
+### Manager Features
 
-### Track
-Click **track**
+#### Period Report
+Enter a start and end time in the format %Y-%m-%d %H:%M and click Generate Report.
+Vehicle activity during that period is displayed in the console.
 
-![Track](images/track.png)
+#### Full Report
+Click Generate Full Report to view all vehicle activity across all time.
 
-### Charge
-Select **vehicle**, click **charge**
+#### Vehicle Status Graph
+Click Generate Vehicle Graph to see a breakdown of vehicles by status.
 
-![Charge](images/charge.png)
+#### Stations and Vehicles Graph
+Click Generate Graph Stations & Vehicles to see how many vehicles are at each station.
 
-### Repair
-Select **vehicle**, click **repair**
 
-![Repair](images/repair.png)
+## File Structure
 
-### Move
-Select **vehicle** and **location**, click **move**
+```
+Sharebike/
+|
+|-- Initialize.py                      # Database setup and test data generation
+|-- sharebike-app-entrypoint.py        # Main GUI entry point
+|-- general.py                         # Register and login logic for all user types
+|-- customer.py                        # Customer-facing operations
+|-- employee.py                        # Operator-facing operations
+|-- manager.py                         # Manager-facing reporting operations
+|-- enum_values.py                     # Enum definitions for vehicle status and user type
+|-- dbFun.py                           # Core database functions
+|-- sharebike_customer.py              # Customer dashboard UI
+|-- sharebike_customer_rent.py         # Rent UI
+|-- sharebike_customer_return.py       # Return UI
+|-- sharebike_customer_report.py       # Report UI
+|-- sharebike_customer_pay.py          # Payment UI
+|-- sharebike_customer_history.py      # History UI
+|-- sharebike_customer_profile.py      # Profile UI
+|-- sharebike_customer_login.py        # Customer login UI
+|-- sharebike_operator.py              # Operator dashboard UI
+|-- sharebike_operator_track.py        # Track UI
+|-- sharebike_operator_charge.py       # Charge UI
+|-- sharebike_operator_repair.py       # Repair UI
+|-- sharebike_operator_move.py         # Move UI
+|-- sharebike_operator_login.py        # Operator login UI
+|-- sharebike_manager_login.py         # Manager login UI
+|-- sharebike_manager_generatereport.py # Report generation UI
+|-- sharebike_register.py              # Registration UI
+|-- README.md
+```
 
-![Move](images/move.png)
+## Developer Notes
 
-## Manager
-![Manager](images/manager.png)
+When registering or signing in, use:
+```python
+enum_values.UserType.USERTYPE.value
+```
 
-### Period Report & Full Report
-- Enter the start time and the end time, formated as **%Y-%m-%d %H:%M**, click **generate report** to get the vehicle information during the span, listed as texts in the console
-- Click **generate full report** to get all the vehicle information, listed as texts in the console
+When changing vehicle status, use:
+```python
+enum_values.Status.STATUS.value
+```
 
-![Report](images/report1.png)
+Key API functions:
 
-### Graph
-Click **generate vehicle graph** to check the number of vehicles under different status
-
-![Graph](images/graph1.png)
-
-### Graph
-Click **generate graph stations & vehicles** to check the number of vehicles in different stations
-
-![Graph](images/graph2.png)
-
----
-
-# Contributors
-
-We'd like to thank the following contributors who have helped make this project better:
-
-- Anjali Shishupal Gedam
-- Rohit Kumar Dubey
-- Sayonee Dassani
-- Xuzhe Huang
+| Function | Description |
+|---|---|
+| rent(vehicle_id, time, location_id, cust_id) | Returns True on success |
+| returnBike(vehicle_id, time, location_id, cust_id) | Returns True on success |
+| report(vehicle_id, time, status, location_id) | Updates vehicle status |
+| history(cust_id) | Returns list of all trips for a customer |
+| track() | Returns latest status of all vehicles |
+| track_charge() | Returns all low-power vehicles |
+| track_repair() | Returns all broken vehicles |
+| charge(vehicle_id, time, location_id) | Returns True on success |
+| repair(vehicle_id, time, location_id) | Returns True on success |
+| move(vehicle_id, time, location_id) | Moves vehicle to location |
+| report_single(vehicle_id) | Returns full history of one vehicle |
+| report_all() | Returns full history of all vehicles |
+| report_period(start_time, end_time) | Returns vehicle history for a time period |
