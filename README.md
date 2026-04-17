@@ -92,42 +92,7 @@ python sharebike-app-entrypoint.py
 2. Enter your email and password
 3. Click Log In
 
-### Customer Features
-
-Rent - Select a location and vehicle, then click Rent.
-
-Return - Select a return location and click Return.
-
-Report - Select a location, vehicle, and fault status, then click Report.
-
-Pay - Enter the amount and click Pay.
-
-View Profile - Click View Profile to see your account details.
-
-View History - Click History to see all your past trips, including start/end stations, time, and charge.
-
-### Operator Features
-
-Track - Click Track to view the current location and status of all vehicles.
-
-Charge - Select a low-power vehicle and click Charge.
-
-Repair - Select a broken vehicle and click Repair.
-
-Move - Select a vehicle and a target location, then click Move.
-
-### Manager Features
-
-Period Report - Enter a start and end time in the format %Y-%m-%d %H:%M and click Generate Report.
-Vehicle activity during that period is displayed in the console.
-
-Full Report - Click Generate Full Report to view all vehicle activity across all time.
-
-Vehicle Status Graph - Click Generate Vehicle Graph to see a breakdown of vehicles by status.
-
-Stations and Vehicles Graph - Click Generate Graph Stations & Vehicles to see how many vehicles are at each station.
-
-Key API functions:
+### Key API functions:
 
 | Function | Description |
 |---|---|
