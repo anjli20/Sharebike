@@ -94,8 +94,7 @@ python sharebike-app-entrypoint.py
 
 ### Customer Features
 
-#### Rent
-Select a location and vehicle, then click Rent.
+#### Rent- Select a location and vehicle, then click Rent.
 
 #### Return
 Select a return location and click Return.
